@@ -3,3 +3,4 @@ _MACOSX/
 *.7z
 *.zip
 *.csv
+.ipynb_checkpoints/
