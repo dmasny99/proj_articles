@@ -4,3 +4,4 @@ _MACOSX/
 *.zip
 *.csv
 .ipynb_checkpoints/
+*.npy
