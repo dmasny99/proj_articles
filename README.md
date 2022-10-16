@@ -1,1 +1,2 @@
-DS part of the project
+articles.ipynb - done by Vlad  
+articles_clustering.ipynb - done by Dima
