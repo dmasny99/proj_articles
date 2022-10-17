@@ -2,6 +2,6 @@ data/
 _MACOSX/
 *.7z
 *.zip
-*.csv
+raw_articles.csv
 .ipynb_checkpoints/
 *.npy
