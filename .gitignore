@@ -1,7 +1,9 @@
-data/
+json_data/
+all_data/
 _MACOSX/
 *.7z
 *.zip
-raw_articles.csv
-.ipynb_checkpoints/
+**/.ipynb_checkpoints/
 *.npy
+**/__pycache__
+bert_model_100k
