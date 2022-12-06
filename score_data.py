@@ -1,26 +1,34 @@
 import numpy as np 
 from tqdm import tqdm
 from bertopic import BERTopic
+import click
 
 # custom scripts
 from text_preprocessing import text_preprocessing
 
-    
-def score_data(model, data, path_to_save):
+@click.command()
+@click.option('--model_path')
+@click.option('--input_data_path')
+@click.option('--path_to_save')
+def score_data(model_path, input_data_path, path_to_save):
+    """
+    Scores already preprocessed texts
+    Input data: python dict {id: preprocessed abstract} serialized in npy format
+    """
+    model = BERTopic.load(model_path)
+    data = np.load(input_data_path, allow_pickle=True).item()
     topics_dict = dict(zip(model.get_topic_info()['Topic'], model.get_topic_info()['Name']))
-    result = []
-    for idx, paper in tqdm(enumerate(data)):
-        preprocesed_abstract = text_preprocessing(paper[1])
-        topics, prob = model.transform(preprocesed_abstract)
-        result.append([data[idx][0], topics_dict[topics[0]]])
-    result = np.array(result)
+    values = []
+    keys = []
+    for key, value in data.items():
+        keys.append(key)
+        values.append(value)
+    topics, prob = model.transform(values)
+    result = list(zip(keys, topics))
     np.save(path_to_save, result)
     
     
     
 if __name__ == '__main__':
-    
-    model = BERTopic.load('bert_model_100k')
-    data = np.load('all_data/abstracts.npy', allow_pickle = True)
-    score_data(model, data, 'all_data/scored_abstracts_all.npy')
+    score_data()
     

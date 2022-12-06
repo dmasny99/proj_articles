@@ -7,3 +7,7 @@ _MACOSX/
 *.npy
 **/__pycache__
 bert_model_100k
+bert_model_350k_2015_new
+topic_modeling_pipeline.pkl
+env/
+env2/
