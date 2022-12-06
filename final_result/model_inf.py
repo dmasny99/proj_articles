@@ -36,6 +36,3 @@ if __name__ == "__main__":
     with open("topic_modeling_pipeline.pkl", "rb") as f:
         m = pickle.load(f)
     print(m.score_text(test_text))
-
-# firstly install this
-# python -m spacy download en_core_web_sm
