@@ -9,5 +9,7 @@ _MACOSX/
 bert_model_100k
 bert_model_350k_2015_new
 topic_modeling_pipeline.pkl
+klusters_top.pkl
+**/data_final.csv
 env/
 env2/
